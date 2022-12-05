@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
+import Loading from "./Loading";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getArticles().then((article) => {
       setArticles(article);
+      setLoading(false);
     });
   }, []);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <ul className="main">
       {articles.map((article) => {
         return (
