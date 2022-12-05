@@ -55,7 +55,6 @@
 @keyframes loader {
   0% {
     transform: scaleY(0.1);
-    background: ;
   }
   50% {
     transform: scaleY(1);
@@ -136,6 +135,17 @@
 
     box-shadow: 0 0 20px white;
     background-color: rgba(104, 85, 224, 1);
+  }
+
+  #topic {
+    font-weight: 600;
+    margin: 5px 5px;
+    padding: 5px 5px;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(104, 85, 224, 1);
+    max-height: 50px;
+    text-decoration: none;
   }
 
   a {
