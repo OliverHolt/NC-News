@@ -130,7 +130,7 @@
     /* right: 5%; */
   }
 
-  button:hover {
+  button:active {
     color: white;
 
     box-shadow: 0 0 20px white;
@@ -159,8 +159,14 @@
     text-decoration: none;
   }
 
+  a:active {
+    color: rgba(104, 85, 224, 1);
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: rgba(255, 255, 255, 1);
+  }
+
   .article-card {
-    background: #282c34;
+    background: #555b68;
     color: white;
     padding: 2rem;
     margin: 1rem;
@@ -170,6 +176,11 @@
     list-style: none;
     /* max-width: 40vw; */
     border: solid 4px rgba(104, 85, 224, 1);
+  }
+  .article-card:active {
+    cursor: pointer;
+    background: white;
+    color: #282c34;
   }
 }
 
@@ -214,7 +225,7 @@
     text-decoration: none;
   }
 
-  a {
+  a:not(.article-card) {
     font-weight: 600;
     margin: 20px 20px;
     padding: 10px 10px;
@@ -225,14 +236,14 @@
     text-decoration: none;
   }
 
-  a:hover {
+  a:hover:not(.article-card) {
     color: rgba(104, 85, 224, 1);
     box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
     background-color: rgba(255, 255, 255, 1);
   }
 
   .article-card {
-    background: #282c34;
+    background: #555b68;
     color: white;
     padding: 2rem;
     margin: 1rem;
@@ -243,5 +254,51 @@
     max-width: 40vw;
     border: solid 4px rgba(104, 85, 224, 1);
     flex: 1 0 21%;
+    text-decoration: none;
   }
+
+  .article-card:hover {
+    cursor: pointer;
+    background: white;
+    color: #282c34;
+  }
+}
+
+#grid-container {
+  display: grid;
+  grid-template-areas: "a a a a c c" "b b . . c c" "d d d d c c";
+  gap: 10px;
+  margin: 0% 10%;
+}
+
+#article-display {
+  background: #67ade5;
+  padding: 2rem;
+  margin: 1rem;
+  grid-area: a;
+  min-height: 30vh;
+  max-width: 50vw;
+}
+
+#like-article {
+  background: #e6b549;
+  padding: 2rem;
+  margin: 1rem;
+  grid-area: b;
+}
+
+#article-comments {
+  background: #61bf58;
+  padding: 2rem;
+  margin: 1rem;
+  grid-area: c;
+  min-width: 30vw;
+}
+
+#add-comment {
+  background: #e46058;
+  padding: 2rem;
+  margin: 1rem;
+  grid-area: d;
+  max-width: 50vw;
 }
