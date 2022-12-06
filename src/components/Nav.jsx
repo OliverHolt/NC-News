@@ -20,7 +20,11 @@ const Nav = () => {
     <ul className="nav">
       <p id="topic">Select a topic:</p>
       {topics.map((topic) => {
-        return <Link key={topic.slug}>{topic.slug.toUpperCase()} </Link>;
+        return (
+          <Link id="topic" key={topic.slug}>
+            {topic.slug.toUpperCase()}{" "}
+          </Link>
+        );
       })}
     </ul>
   );

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
-const Articles = () => {
+const Articles = ({ setSingleArticle }) => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,14 +20,21 @@ const Articles = () => {
     <ul className="main">
       {articles.map((article) => {
         return (
-          <li className="article-card">
+          <Link
+            to={`/articles/${article.article_id}`}
+            key={article.article_id}
+            className="article-card"
+            onClick={() => {
+              setSingleArticle(article);
+            }}
+          >
             <h2>{article.title}</h2>
             <br />
             <br />
             <h3>Author: {article.author}</h3>
-            <h3> Topic: {article.topic}</h3>
+            <h3>Topic: {article.topic}</h3>
             <h3>Date: {article.created_at.substring(0, 10)}</h3>
-          </li>
+          </Link>
         );
       })}
     </ul>
