@@ -24,3 +24,12 @@ export const getArticleByID = (id) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const getCommentsByArticleID = (id) => {
+  return myApi
+    .get(`/api/articles/${id}/comments`)
+    .then(({ data }) => {
+      return data.comments;
+    })
+    .catch((err) => console.log(err));
+};

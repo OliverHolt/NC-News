@@ -7,6 +7,12 @@
   border-bottom: solid;
 }
 
+#comments-list {
+  border: solid 1px white;
+  padding: 10px;
+  text-align: left;
+}
+
 @media screen and (max-width: 1100px) {
   #grid-container {
     display: grid;
@@ -29,14 +35,16 @@
   }
 
   #like-article {
-    background: #e6b549;
+    background: white;
+    border: solid;
     padding: 2rem;
     margin: 1rem;
     grid-area: b;
   }
 
   #article-comments {
-    background: #61bf58;
+    background-color: #282c34;
+    color: white;
     padding: 2rem;
     margin: 1rem;
     grid-area: c;
@@ -45,7 +53,8 @@
   }
 
   #add-comment {
-    background: #e46058;
+    background: white;
+    border: solid;
     padding: 2rem;
     margin: 1rem;
     grid-area: d;
@@ -74,22 +83,28 @@
   }
 
   #like-article {
-    background: #e6b549;
+    background: white;
+    border: solid;
     padding: 2rem;
     margin: 1rem;
     grid-area: b;
+    height: 10vh;
   }
 
   #article-comments {
-    background: #61bf58;
+    background-color: #282c34;
+    color: white;
     padding: 2rem;
     margin: 1rem;
     grid-area: c;
-    min-width: 30vw;
+    width: 30vw;
+    max-height: 50vh;
+    overflow: scroll;
   }
 
   #add-comment {
-    background: #e46058;
+    background: white;
+    border: solid;
     padding: 2rem;
     margin: 1rem;
     grid-area: d;

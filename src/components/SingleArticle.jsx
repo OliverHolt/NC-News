@@ -2,10 +2,13 @@ import "../CSS/SingleArticle.css";
 import { useEffect, useState } from "react";
 import { getArticleByID } from "../api";
 import Loading from "./Loading";
+import Comments from "./Comments";
+import { useParams } from "react-router-dom";
 
 const SingleArticle = ({ singleArticle }) => {
-  const id = singleArticle.article_id;
-  const [article, setArticle] = useState({});
+  const { article_id } = useParams();
+  const id = article_id;
+  const [article, setArticle] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -35,7 +38,12 @@ const SingleArticle = ({ singleArticle }) => {
           <p>{article.body}</p>
         </div>
         <div id="like-article">Liked this article? </div>
-        <div id="article-comments">Comments</div>
+        <div id="article-comments">
+          <h2>COMMENTS</h2>
+          <br />
+          <br />
+          <Comments singleArticle={singleArticle} />
+        </div>
         <div id="add-comment">Add comment:</div>
       </div>
     </div>
