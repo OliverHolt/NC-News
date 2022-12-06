@@ -2,6 +2,7 @@ import "../CSS/SingleArticle.css";
 import { useEffect, useState } from "react";
 import { getArticleByID } from "../api";
 import Loading from "./Loading";
+import Comments from "./Comments";
 
 const SingleArticle = ({ singleArticle }) => {
   const id = singleArticle.article_id;
@@ -35,7 +36,12 @@ const SingleArticle = ({ singleArticle }) => {
           <p>{article.body}</p>
         </div>
         <div id="like-article">Liked this article? </div>
-        <div id="article-comments">Comments</div>
+        <div id="article-comments">
+          <h2>COMMENTS</h2>
+          <br />
+          <br />
+          <Comments singleArticle={singleArticle} />
+        </div>
         <div id="add-comment">Add comment:</div>
       </div>
     </div>
