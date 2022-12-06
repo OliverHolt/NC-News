@@ -8,64 +8,6 @@
   text-align: center;
 }
 
-/* Loading animation */
-
-.middle {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-}
-.bar {
-  width: 10px;
-  height: 70px;
-  background: #fff;
-  display: inline-block;
-  transform-origin: bottom center;
-  border-top-right-radius: 20px;
-  border-top-left-radius: 20px;
-  /* box-shadow: 5px 10px 20px inset rgba(255, 23, 25.2); */
-  animation: loader 1.2s linear infinite;
-}
-.bar1 {
-  animation-delay: 0.1s;
-}
-.bar2 {
-  animation-delay: 0.2s;
-}
-.bar3 {
-  animation-delay: 0.3s;
-}
-.bar4 {
-  animation-delay: 0.4s;
-}
-.bar5 {
-  animation-delay: 0.5s;
-}
-.bar6 {
-  animation-delay: 0.6s;
-}
-.bar7 {
-  animation-delay: 0.7s;
-}
-.bar8 {
-  animation-delay: 0.8s;
-}
-
-@keyframes loader {
-  0% {
-    transform: scaleY(0.1);
-  }
-  50% {
-    transform: scaleY(1);
-    background: #282c34;
-  }
-  100% {
-    transform: scaleY(0.1);
-    background: transparent;
-  }
-}
-
 .header {
   background-color: #282c34;
   min-height: 20vh;
@@ -97,7 +39,7 @@
   align-items: stretch;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   #title {
     position: absolute;
     top: 10%;
@@ -155,7 +97,7 @@
     box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
     color: rgba(255, 255, 255, 1);
     background-color: rgba(104, 85, 224, 1);
-    max-height: 50px;
+    /* max-height: 50px; */
     text-decoration: none;
   }
 
@@ -172,7 +114,7 @@
     margin: 1rem;
     border: solid;
     text-align: left;
-    flex: 1;
+    flex: 1 0 90%;
     list-style: none;
     /* max-width: 40vw; */
     border: solid 4px rgba(104, 85, 224, 1);
@@ -184,7 +126,7 @@
   }
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 801px) {
   #title {
     position: absolute;
     left: 5%;
@@ -262,43 +204,4 @@
     background: white;
     color: #282c34;
   }
-}
-
-#grid-container {
-  display: grid;
-  grid-template-areas: "a a a a c c" "b b . . c c" "d d d d c c";
-  gap: 10px;
-  margin: 0% 10%;
-}
-
-#article-display {
-  background: #67ade5;
-  padding: 2rem;
-  margin: 1rem;
-  grid-area: a;
-  min-height: 30vh;
-  max-width: 50vw;
-}
-
-#like-article {
-  background: #e6b549;
-  padding: 2rem;
-  margin: 1rem;
-  grid-area: b;
-}
-
-#article-comments {
-  background: #61bf58;
-  padding: 2rem;
-  margin: 1rem;
-  grid-area: c;
-  min-width: 30vw;
-}
-
-#add-comment {
-  background: #e46058;
-  padding: 2rem;
-  margin: 1rem;
-  grid-area: d;
-  max-width: 50vw;
 }

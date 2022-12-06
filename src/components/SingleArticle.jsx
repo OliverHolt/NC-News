@@ -1,3 +1,4 @@
+import "../CSS/SingleArticle.css";
 import { useEffect, useState } from "react";
 import { getArticleByID } from "../api";
 import Loading from "./Loading";
@@ -12,20 +13,25 @@ const SingleArticle = ({ singleArticle }) => {
       setArticle(article);
       setLoading(false);
     });
-  }, [id]);
+  }, []);
 
   return loading ? (
     <Loading />
   ) : (
     <div>
-      <a href="/" id="home">
+      <br />
+      <br />
+      <a href="/" id="home-button">
         HOME
       </a>
+      <br />
+      <br />
       <div id="grid-container">
         <div id="article-display">
           <h2>{article.title}</h2>
-          <h3>by: {article.author}</h3>
-
+          <br />
+          <h3>{article.author}</h3>
+          <br />
           <p>{article.body}</p>
         </div>
         <div id="like-article">Liked this article? </div>

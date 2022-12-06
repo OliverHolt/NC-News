@@ -1,3 +1,5 @@
+import "../CSS/Loader.css";
+
 const Loading = () => {
   return (
     <div className="middle">
