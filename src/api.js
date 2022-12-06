@@ -33,3 +33,16 @@ export const getCommentsByArticleID = (id) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const patchArticle = (id) => {
+  const patchBody = {
+    inc_votes: 1,
+  };
+
+  return myApi
+    .patch(`/api/articles/${id}`, patchBody)
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch((err) => console.log(err.response));
+};
