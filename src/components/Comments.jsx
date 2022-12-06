@@ -4,18 +4,17 @@ import { getCommentsByArticleID } from "../api";
 import Loading from "./Loading";
 import { useParams } from "react-router-dom";
 
-const Comments = ({ singleArticle }) => {
+const Comments = () => {
   const { article_id } = useParams();
-  const id = article_id;
   const [articleComments, setArticleComments] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getCommentsByArticleID(id).then((article) => {
+    getCommentsByArticleID(article_id).then((article) => {
       setArticleComments(article);
       setLoading(false);
     });
-  }, []);
+  }, [article_id]);
 
   return loading ? (
     <Loading />
