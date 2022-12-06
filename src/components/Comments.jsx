@@ -2,9 +2,11 @@ import "../CSS/SingleArticle.css";
 import { useEffect, useState } from "react";
 import { getCommentsByArticleID } from "../api";
 import Loading from "./Loading";
+import { useParams } from "react-router-dom";
 
 const Comments = ({ singleArticle }) => {
-  const id = singleArticle.article_id;
+  const { article_id } = useParams();
+  const id = article_id;
   const [articleComments, setArticleComments] = useState({});
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +23,7 @@ const Comments = ({ singleArticle }) => {
     <ul className="comments-list">
       {articleComments.map((comment) => {
         return (
-          <div id="comments-list">
+          <div id="comments-list" key={comment.comment_id}>
             <p>
               {comment.author} | {comment.created_at.substring(0, 10)}:
             </p>
