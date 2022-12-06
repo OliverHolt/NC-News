@@ -27,6 +27,8 @@ const Comments = ({ singleArticle }) => {
             </p>
             <br />
             <p>{comment.body}</p>
+            <br />
+            <p>Likes: {comment.votes}</p>
           </div>
         );
       })}
