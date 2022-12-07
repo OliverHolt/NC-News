@@ -4,6 +4,7 @@ import { getArticleByID } from "../api";
 import Loading from "./Loading";
 import Comments from "./Comments";
 import { useParams } from "react-router-dom";
+import Likes from "./Likes";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
@@ -36,7 +37,11 @@ const SingleArticle = () => {
           <br />
           <p>{article.body}</p>
         </div>
-        <div id="like-article">Liked this article? </div>
+        <div id="like-article">
+          <h2>Liked this article?</h2>
+
+          <Likes article_id={article_id} />
+        </div>
         <div id="article-comments">
           <h2>COMMENTS</h2>
           <br />

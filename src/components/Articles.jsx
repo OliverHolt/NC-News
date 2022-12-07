@@ -3,7 +3,7 @@ import { getArticles } from "../api";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
 
-const Articles = ({ setSingleArticle }) => {
+const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,9 +24,6 @@ const Articles = ({ setSingleArticle }) => {
             to={`/articles/${article.article_id}`}
             key={article.article_id}
             className="article-card"
-            onClick={() => {
-              setSingleArticle(article);
-            }}
           >
             <h2>{article.title}</h2>
             <br />
