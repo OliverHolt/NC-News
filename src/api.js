@@ -43,3 +43,11 @@ export const patchArticle = (id) => {
     return data.article;
   });
 };
+
+export const getArticlesByTopic = (topic) => {
+  return myApi
+    .get("/api/articles/", { params: { topic: topic } })
+    .then(({ data }) => {
+      return data.articles;
+    });
+};
