@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { getArticleByID, patchArticle } from "../api";
 
-const Likes = () => {
-  const { article_id } = useParams();
+const Likes = ({ article_id }) => {
   const [likes, setLikes] = useState(0);
+  const [likeButton, setLikeButton] = useState(false);
 
   useEffect(() => {
     getArticleByID(article_id).then((article) => {
       setLikes(article.votes);
     });
   }, [article_id]);
-
-  const disableButton = (event) => {
-    event.currentTarget.disabled = true;
-    console.log("button disabled");
-  };
 
   const handleVote = (article_id) => {
     setLikes((likes) => {
@@ -35,8 +29,9 @@ const Likes = () => {
       id="likes-button"
       onClick={(event) => {
         handleVote(article_id);
-        disableButton(event);
+        setLikeButton(true);
       }}
+      disabled={likeButton === true ? true : false}
     >
       <span aria-label="votes for this article">❤️</span> {likes}
     </button>

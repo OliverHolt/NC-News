@@ -40,7 +40,7 @@ const SingleArticle = () => {
         <div id="like-article">
           <h2>Liked this article?</h2>
 
-          <Likes />
+          <Likes article_id={article_id} />
         </div>
         <div id="article-comments">
           <h2>COMMENTS</h2>

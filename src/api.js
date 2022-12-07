@@ -39,10 +39,7 @@ export const patchArticle = (id) => {
     inc_votes: 1,
   };
 
-  return myApi
-    .patch(`/api/articles/${id}`, patchBody)
-    .then(({ data }) => {
-      return data.article;
-    })
-    .catch((err) => console.log(err.response));
+  return myApi.patch(`/api/articles/${id}`, patchBody).then(({ data }) => {
+    return data.article;
+  });
 };
