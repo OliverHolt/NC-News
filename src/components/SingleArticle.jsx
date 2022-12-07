@@ -5,15 +5,22 @@ import Loading from "./Loading";
 import Comments from "./Comments";
 import { useParams } from "react-router-dom";
 import Likes from "./Likes";
+import AddComment from "./AddComment";
+import { getCommentsByArticleID } from "../api";
 
 const SingleArticle = () => {
   const { article_id } = useParams();
-  const [article, setArticle] = useState(0);
+  const [article, setArticle] = useState({});
+  const [articleComments, setArticleComments] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getArticleByID(article_id).then((article) => {
       setArticle(article);
+    });
+
+    getCommentsByArticleID(article_id).then((article) => {
+      setArticleComments(article);
       setLoading(false);
     });
   }, [article_id]);
@@ -46,9 +53,14 @@ const SingleArticle = () => {
           <h2>COMMENTS</h2>
           <br />
           <br />
-          <Comments />
+          <Comments article_id={article_id} articleComments={articleComments} />
         </div>
-        <div id="add-comment">Add comment:</div>
+        <div id="add-comment">
+          <AddComment
+            article_id={article_id}
+            setArticleComments={setArticleComments}
+          />
+        </div>
       </div>
     </div>
   );

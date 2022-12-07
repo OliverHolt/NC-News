@@ -43,3 +43,16 @@ export const patchArticle = (id) => {
     return data.article;
   });
 };
+
+export const postComment = (body, article_id, username) => {
+  const postBody = {
+    body: body,
+    article_id: article_id,
+    username: username,
+  };
+  return myApi
+    .post(`/api/articles/${article_id}/comments`, postBody)
+    .then(({ data }) => {
+      return data.comment;
+    });
+};
