@@ -44,6 +44,13 @@ export const patchArticle = (id) => {
   });
 };
 
+export const getArticlesByTopic = (topic) => {
+  return myApi
+    .get("/api/articles/", { params: { topic: topic } })
+    .then(({ data }) => {
+      return data.articles;
+    });
+};
 export const postComment = (body, article_id, username) => {
   const postBody = {
     body: body,
