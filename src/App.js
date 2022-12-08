@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import { Routes, Route } from "react-router-dom";
 import SingleArticle from "./components/SingleArticle";
 import SingleTopic from "./components/SingleTopic";
+import SortArticles from "./components/SortArticles";
 
 function App() {
   return (

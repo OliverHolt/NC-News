@@ -63,3 +63,11 @@ export const postComment = (body, article_id, username) => {
       return data.comment;
     });
 };
+
+export const sortArticles = (sort_by, order) => {
+  return myApi
+    .get("/api/articles/", { params: { sort_by: sort_by, order: order } })
+    .then(({ data }) => {
+      return data.articles;
+    });
+};
