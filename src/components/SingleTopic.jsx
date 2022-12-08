@@ -42,18 +42,22 @@ const SingleTopic = () => {
     <Loading />
   ) : (
     <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="mySelect">Sort by:</label>
-        <select id="mySelect">
+      <form className="nav" onSubmit={handleSubmit}>
+        <label id="topic" htmlFor="mySelect">
+          Sort by:
+        </label>
+        <select id="topic">
           <option value="created_at">Date</option>
           <option value="author">Author</option>
           <option value="votes">Votes</option>
         </select>
-        <select id="mySelect">
+        <select id="topic">
           <option value="ASC">Ascending</option>
           <option value="DESC">Descending</option>
         </select>
-        <button type="submit">Submit</button>
+        <button id="topic" type="submit">
+          Submit
+        </button>
       </form>
       <ul className="main">
         {articles.map((article) => {

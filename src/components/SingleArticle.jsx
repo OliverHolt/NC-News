@@ -34,11 +34,6 @@ const SingleArticle = () => {
       <div>
         <br />
         <br />
-        <a href="/" id="home-button">
-          HOME
-        </a>
-        <br />
-        <br />
         <div id="grid-container">
           <div id="article-display">
             <h2>{article.title}</h2>
@@ -70,11 +65,6 @@ const SingleArticle = () => {
   } else {
     return (
       <div>
-        <br />
-        <br />
-        <a href="/" id="home-button">
-          HOME
-        </a>
         <br />
         <br />
         <div id="grid-container">
