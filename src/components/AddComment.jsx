@@ -7,6 +7,7 @@ const AddComment = ({ article_id, setArticleComments }) => {
   const [newComment, setNewComment] = useState("");
   const [username, setUsername] = useState(userValue.user);
   const [addButton, setAddButton] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -19,10 +20,11 @@ const AddComment = ({ article_id, setArticleComments }) => {
           return newCommentList;
         });
         setAddButton(false);
-        document.getElementById("add-button").innerHTML = "Add again!";
+        setError(false);
       })
       .catch(() => {
-        document.getElementById("add-button").innerHTML = "Failed!";
+        setError(true);
+        setAddButton(false);
       });
   };
 
@@ -37,6 +39,7 @@ const AddComment = ({ article_id, setArticleComments }) => {
         value={newComment}
         onChange={(event) => {
           setNewComment(event.target.value);
+          setError("");
         }}
         rows={5}
         required
@@ -53,8 +56,15 @@ const AddComment = ({ article_id, setArticleComments }) => {
         }}
         disabled={addButton === true ? true : false}
       >
-        <h3 id="add-button">Add</h3>
+        <h3>Add</h3>
       </button>
+      <h3>
+        {error === ""
+          ? ""
+          : error === false
+          ? "Comment added!"
+          : "Comment failed to add..."}
+      </h3>
     </form>
   );
 };
