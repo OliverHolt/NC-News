@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postComment } from "../api";
+import { UserContext } from "../contexts/User";
 
 const AddComment = ({ article_id, setArticleComments }) => {
+  const userValue = useContext(UserContext);
   const [newComment, setNewComment] = useState("");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(userValue.user);
   const [addButton, setAddButton] = useState(false);
 
   const handleSubmit = (event) => {
@@ -11,16 +13,16 @@ const AddComment = ({ article_id, setArticleComments }) => {
     postComment(newComment, article_id, username)
       .then((newComment) => {
         setNewComment("");
-        setUsername("");
         setArticleComments((currComments) => {
           const newCommentList = [...currComments];
           newCommentList.unshift(newComment);
           return newCommentList;
         });
-        alert("Comment added!");
+        setAddButton(false);
+        document.getElementById("add-button").innerHTML = "Add again!";
       })
       .catch(() => {
-        alert("ERROR: Comment not added!");
+        document.getElementById("add-button").innerHTML = "Failed!";
       });
   };
 
@@ -41,25 +43,7 @@ const AddComment = ({ article_id, setArticleComments }) => {
       ></textarea>
       <br />
       <br />
-      <label htmlFor="username">
-        <h2>Select a user:</h2>
-      </label>
-      <br />
-      <select
-        id="username"
-        value={username}
-        onChange={(event) => {
-          setUsername(event.target.value);
-        }}
-      >
-        <option value=""></option>
-        <option value="tickle122">tickle122</option>
-        <option value="grumpy19">grumpy19</option>
-        <option value="happyamy2016">happyamy2016</option>
-        <option value="cooljmessy">cooljmessy</option>
-        <option value="weegembump">weegembump</option>
-        <option value="jessjelly">jessjelly</option>
-      </select>
+      <h2>User : {userValue.user}</h2>
       <br />
       <br />
       <button
@@ -69,7 +53,7 @@ const AddComment = ({ article_id, setArticleComments }) => {
         }}
         disabled={addButton === true ? true : false}
       >
-        <h3>Add</h3>
+        <h3 id="add-button">Add</h3>
       </button>
     </form>
   );
