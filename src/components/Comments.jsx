@@ -13,6 +13,7 @@ const Comments = ({ articleComments }) => {
             <p>{comment.body}</p>
             <br />
             <p>Likes: {comment.votes}</p>
+            <p>Comment ID: {comment.comment_id}</p>
           </div>
         );
       })}

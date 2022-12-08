@@ -32,7 +32,7 @@ const AddComment = ({ article_id, setArticleComments }) => {
     <form className="comment-adder" onSubmit={handleSubmit}>
       <label htmlFor="newComment">
         <h2>Add a comment:</h2>
-      </label>{" "}
+      </label>
       <br />
       <textarea
         id="newComment"
@@ -49,15 +49,6 @@ const AddComment = ({ article_id, setArticleComments }) => {
       <h2>User : {userValue.user}</h2>
       <br />
       <br />
-      <button
-        id="add"
-        onClick={() => {
-          setAddButton(true);
-        }}
-        disabled={addButton === true ? true : false}
-      >
-        <h3>Add</h3>
-      </button>
       <h3>
         {error === ""
           ? ""
@@ -65,6 +56,16 @@ const AddComment = ({ article_id, setArticleComments }) => {
           ? "Comment added!"
           : "Comment failed to add..."}
       </h3>
+      <button
+        id="add"
+        onClick={() => {
+          setAddButton(true);
+        }}
+        disabled={addButton === true ? true : false}
+      >
+        {" "}
+        <h3>Add</h3>
+      </button>
     </form>
   );
 };

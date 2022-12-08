@@ -8,6 +8,7 @@ import Likes from "./Likes";
 import AddComment from "./AddComment";
 import { getCommentsByArticleID } from "../api";
 import { UserContext } from "../contexts/User";
+import DeleteComment from "./DeleteComment";
 
 const SingleArticle = () => {
   const userValue = useContext(UserContext);
@@ -15,6 +16,7 @@ const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [articleComments, setArticleComments] = useState({});
   const [loading, setLoading] = useState(true);
+  const [deleteCommentID, setDeleteCommentID] = useState(0);
 
   useEffect(() => {
     getArticleByID(article_id).then((article) => {
@@ -25,7 +27,7 @@ const SingleArticle = () => {
       setArticleComments(article);
       setLoading(false);
     });
-  }, [article_id, userValue]);
+  }, [article_id, userValue, deleteCommentID]);
 
   if (loading) {
     return <Loading />;
@@ -93,6 +95,11 @@ const SingleArticle = () => {
             <AddComment
               article_id={article_id}
               setArticleComments={setArticleComments}
+            />
+            <DeleteComment
+              articleComments={articleComments}
+              setDeleteCommentID={setDeleteCommentID}
+              deleteCommentID={deleteCommentID}
             />
           </div>
         </div>

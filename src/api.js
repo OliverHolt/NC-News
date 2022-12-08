@@ -71,3 +71,9 @@ export const sortArticles = (sort_by, order) => {
       return data.articles;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return myApi.delete(`/api/comments/${comment_id}`).then((data) => {
+    return "Status Code: " + data.status;
+  });
+};
