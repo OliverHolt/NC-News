@@ -8,6 +8,7 @@ import Likes from "./Likes";
 import AddComment from "./AddComment";
 import { getCommentsByArticleID } from "../api";
 import { UserContext } from "../contexts/User";
+import NotFoundPage from "./Not-Found-Page";
 
 const SingleArticle = () => {
   const userValue = useContext(UserContext);
@@ -15,17 +16,30 @@ const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [articleComments, setArticleComments] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getArticleByID(article_id).then((article) => {
-      setArticle(article);
-    });
+    getArticleByID(article_id)
+      .then((article) => {
+        setArticle(article);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
 
-    getCommentsByArticleID(article_id).then((article) => {
-      setArticleComments(article);
-      setLoading(false);
-    });
+    getCommentsByArticleID(article_id)
+      .then((article) => {
+        setArticleComments(article);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   }, [article_id]);
+
+  if (error) {
+    return <NotFoundPage error={error} />;
+  }
 
   if (loading) {
     return <Loading />;
