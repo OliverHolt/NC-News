@@ -17,21 +17,15 @@ export const getArticles = () => {
 };
 
 export const getArticleByID = (id) => {
-  return myApi
-    .get(`/api/articles/${id}`)
-    .then(({ data }) => {
-      return data.article[0];
-    })
-    .catch((err) => console.log(err));
+  return myApi.get(`/api/articles/${id}`).then(({ data }) => {
+    return data.article[0];
+  });
 };
 
 export const getCommentsByArticleID = (id) => {
-  return myApi
-    .get(`/api/articles/${id}/comments`)
-    .then(({ data }) => {
-      return data.comments;
-    })
-    .catch((err) => console.log(err));
+  return myApi.get(`/api/articles/${id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
 };
 
 export const patchArticle = (id) => {

@@ -16,22 +16,33 @@ const SingleArticle = () => {
   const [article, setArticle] = useState({});
   const [articleComments, setArticleComments] = useState({});
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getArticleByID(article_id).then((article) => {
-      setArticle(article);
-    });
+    getArticleByID(article_id)
+      .then((article) => {
+        setArticle(article);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
 
-    getCommentsByArticleID(article_id).then((article) => {
-      setArticleComments(article);
-      setLoading(false);
-    });
+    getCommentsByArticleID(article_id)
+      .then((article) => {
+        setArticleComments(article);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+      });
   }, [article_id]);
+
+  if (error) {
+    return <NotFoundPage error={error} />;
+  }
 
   if (loading) {
     return <Loading />;
-  } else if (!article) {
-    return <NotFoundPage />;
   } else if (!userValue.user) {
     return (
       <div>

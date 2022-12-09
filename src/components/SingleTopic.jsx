@@ -13,12 +13,18 @@ const SingleTopic = () => {
   const [articles, setArticles] = useState({});
   const [loading, setLoading] = useState(true);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getArticlesByTopic(topic).then((articles) => {
-      setArticles(articles);
-      setLoading(false);
-    });
+    getArticlesByTopic(topic)
+      .then((articles) => {
+        setArticles(articles);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        console.log(err.message, "<<< error message 1");
+      });
   }, [topic]);
 
   function serializeFormQuery(obj) {
@@ -33,16 +39,23 @@ const SingleTopic = () => {
     event.preventDefault();
     let params = serializeFormQuery(event);
     setSearchParams(params);
-    sortArticles(params.sort_by, params.order).then((articles) => {
-      setArticles(articles);
-      setLoading(false);
-    });
+    sortArticles(params.sort_by, params.order)
+      .then((articles) => {
+        setArticles(articles);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        console.log(err.message, "<<< error message 2");
+      });
+  }
+
+  if (error || !articles) {
+    return <NotFoundPage error={error} />;
   }
 
   if (loading) {
     return <Loading />;
-  } else if (!articles) {
-    return <NotFoundPage />;
   } else {
     return (
       <div>

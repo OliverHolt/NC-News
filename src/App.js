@@ -15,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Articles />} />
         <Route path="/articles/topics/:topic" element={<SingleTopic />} />
+
         <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
