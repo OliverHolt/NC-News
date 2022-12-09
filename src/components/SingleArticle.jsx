@@ -29,6 +29,13 @@ const SingleArticle = () => {
 
   if (loading) {
     return <Loading />;
+  } else if (!article) {
+    return (
+      <div id="not-found">
+        <h1>PAGE NOT FOUND!</h1>
+        <h2>Press a button above to go back...</h2>
+      </div>
+    );
   } else if (!userValue.user) {
     return (
       <div>

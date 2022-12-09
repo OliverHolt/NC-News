@@ -5,7 +5,7 @@ import Nav from "./components/Nav";
 import { Routes, Route } from "react-router-dom";
 import SingleArticle from "./components/SingleArticle";
 import SingleTopic from "./components/SingleTopic";
-import SortArticles from "./components/SortArticles";
+import NotFoundPage from "./components/Not-Found-Page";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<Articles />} />
         <Route path="/articles/topics/:topic" element={<SingleTopic />} />
         <Route path="/articles/:article_id" element={<SingleArticle />} />
+        <Route path="*" element={<NotFoundPage />}></Route>
       </Routes>
     </div>
   );

@@ -38,47 +38,56 @@ const SingleTopic = () => {
     });
   }
 
-  return loading ? (
-    <Loading />
-  ) : (
-    <div>
-      <form className="nav" onSubmit={handleSubmit}>
-        <label id="topic" htmlFor="mySelect">
-          Sort by:
-        </label>
-        <select id="topic">
-          <option value="created_at">Date</option>
-          <option value="author">Author</option>
-          <option value="votes">Votes</option>
-        </select>
-        <select id="topic">
-          <option value="ASC">Ascending</option>
-          <option value="DESC">Descending</option>
-        </select>
-        <button id="topic" type="submit">
-          Submit
-        </button>
-      </form>
-      <ul className="main">
-        {articles.map((article) => {
-          return (
-            <Link
-              to={`/articles/${article.article_id}`}
-              key={article.article_id}
-              className="article-card"
-            >
-              <h2>{article.title}</h2>
-              <br />
-              <br />
-              <h3>Author: {article.author}</h3>
-              <h3>Topic: {article.topic}</h3>
-              <h3>Date: {article.created_at.substring(0, 10)}</h3>
-            </Link>
-          );
-        })}
-      </ul>
-    </div>
-  );
+  if (loading) {
+    return <Loading />;
+  } else if (!articles) {
+    return (
+      <div id="not-found">
+        <h1>PAGE NOT FOUND!</h1>
+        <h2>Press a button above to go back...</h2>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <form className="nav" onSubmit={handleSubmit}>
+          <label id="topic" htmlFor="mySelect">
+            Sort by:
+          </label>
+          <select id="topic">
+            <option value="created_at">Date</option>
+            <option value="author">Author</option>
+            <option value="votes">Votes</option>
+          </select>
+          <select id="topic">
+            <option value="ASC">Ascending</option>
+            <option value="DESC">Descending</option>
+          </select>
+          <button id="topic" type="submit">
+            Submit
+          </button>
+        </form>
+        <ul className="main">
+          {articles.map((article) => {
+            return (
+              <Link
+                to={`/articles/${article.article_id}`}
+                key={article.article_id}
+                className="article-card"
+              >
+                <h2>{article.title}</h2>
+                <br />
+                <br />
+                <h3>Author: {article.author}</h3>
+                <h3>Topic: {article.topic}</h3>
+                <h3>Date: {article.created_at.substring(0, 10)}</h3>
+              </Link>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
 };
 
 export default SingleTopic;
