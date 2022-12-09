@@ -98,6 +98,7 @@ const SingleArticle = () => {
             />
             <DeleteComment
               articleComments={articleComments}
+              setArticleComments={setArticleComments}
               setDeleteCommentID={setDeleteCommentID}
               deleteCommentID={deleteCommentID}
             />

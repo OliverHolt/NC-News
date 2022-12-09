@@ -4,6 +4,7 @@ import { UserContext } from "../contexts/User";
 
 const DeleteComment = ({
   articleComments,
+  setArticleComments,
   setDeleteCommentID,
   deleteCommentID,
 }) => {
@@ -27,10 +28,12 @@ const DeleteComment = ({
     };
 
     if (targetArticle(articleComments)) {
-      deleteComment(deleteCommentID);
-      setDeleteCommentID("");
-      setError(false);
-      setDisableButton(true);
+      deleteComment(deleteCommentID).then(() => {
+        setDeleteCommentID("");
+        setError(false);
+        setDisableButton(true);
+        setArticleComments(articleComments);
+      });
     } else {
       setDeleteCommentID("");
       setError(true);
@@ -42,6 +45,7 @@ const DeleteComment = ({
     <form
       className="comment-adder"
       onSubmit={(event) => {
+        setError(""); //look at this
         setDeleteCommentID(event.target[0].value);
         handleSubmit(event);
       }}

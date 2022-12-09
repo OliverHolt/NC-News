@@ -29,7 +29,13 @@ const AddComment = ({ article_id, setArticleComments }) => {
   };
 
   return (
-    <form className="comment-adder" onSubmit={handleSubmit}>
+    <form
+      className="comment-adder"
+      onSubmit={(event) => {
+        handleSubmit(event);
+        setError(""); //look at this. Trying to get it to clear inputs on submit...
+      }}
+    >
       <label htmlFor="newComment">
         <h2>Add a comment:</h2>
       </label>
