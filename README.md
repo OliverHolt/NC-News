@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Summary
 
-## Available Scripts
+This project was part of the Northcoders bootcamp, October 2022 - December 2022.
 
-In the project directory, you can run:
+In this project, I:
 
-### `npm start`
+```
+1. Built a back-end API, in order to access application data.
+2. Built a front-end, which utilised the back-end API.
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The intention was to mimic the building of a real world backend service, such as reddit. The database used was PSQL, and interactions were done through node-postgres. The front end application was constructed using React.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Using the app
 
-### `npm test`
+The front end application satisfies the following user desires:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+1. View a list of all articles
+2. View a list of all articles of a certain topic
+3. View an individual article
+4. Like on an article
+5. View a list of comments associated with an article
+6. Post a new comment to an existing article (as a valid user)
+7. Sort articles based on: date, author, or number of likes
+8. Order sorted articles in ascending or descending order
+9. Delete comments (as a valid user)
+10. Have responsive error handling for invalid URL paths
+```
 
-### `npm run build`
+As the Guest user - the default user for the Home page - you can browse articles, topics, and view comments. You will not be able to comment on an article without being a valid user. You can also not delete comments as the Guest user.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To be recognised as a valid user, select the login button in the top right corner. You will then be able to comment on articles (using that username), and you will be able to delete your comments.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Description               |                          Link                          |
+| :------------------------ | :----------------------------------------------------: |
+| Hosted version of project |         https://oliverholt-ncnews.netlify.app/         |
+| Back-end API              | https://long-pink-goat-wear.cyclic.app/api/healthCheck |
+| Back-end repo             |     https://github.com/OliverHolt/BE-news-project      |
+| Creator's Github profile  |             https://github.com/OliverHolt/             |
 
-### `npm run eject`
+# Set-up instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Install Node.js
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Ensure that you have Node.js installed with these minimum requirements:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+Node.js: v18.7.0
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To check which version you currently have installed:
 
-## Learn More
+```
+node --version
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Cloning the repo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+In order to clone this repo use the following:
 
-### Code Splitting
+```
+git clone https://github.com/OliverHolt/NC-News
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+If you would like to make changes to this repo yourself, fork the repo then clone it.
 
-### Analyzing the Bundle Size
+## Installing dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To install all dependencies required run:
 
-### Making a Progressive Web App
+```
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Running dev site locally
 
-### Advanced Configuration
+Once you have installed all dependencies run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm start
+```
