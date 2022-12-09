@@ -8,6 +8,7 @@ import Likes from "./Likes";
 import AddComment from "./AddComment";
 import { getCommentsByArticleID } from "../api";
 import { UserContext } from "../contexts/User";
+import NotFoundPage from "./Not-Found-Page";
 
 const SingleArticle = () => {
   const userValue = useContext(UserContext);
@@ -30,12 +31,7 @@ const SingleArticle = () => {
   if (loading) {
     return <Loading />;
   } else if (!article) {
-    return (
-      <div id="not-found">
-        <h1>PAGE NOT FOUND!</h1>
-        <h2>Press a button above to go back...</h2>
-      </div>
-    );
+    return <NotFoundPage />;
   } else if (!userValue.user) {
     return (
       <div>

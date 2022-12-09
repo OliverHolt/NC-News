@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import { sortArticles } from "../api";
+import NotFoundPage from "./Not-Found-Page";
 
 const SingleTopic = () => {
   const { topic } = useParams();
@@ -41,12 +42,7 @@ const SingleTopic = () => {
   if (loading) {
     return <Loading />;
   } else if (!articles) {
-    return (
-      <div id="not-found">
-        <h1>PAGE NOT FOUND!</h1>
-        <h2>Press a button above to go back...</h2>
-      </div>
-    );
+    return <NotFoundPage />;
   } else {
     return (
       <div>
