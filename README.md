@@ -36,12 +36,12 @@ To be recognised as a valid user, select the login button in the top right corne
 
 ## Links
 
-| Description               |                          Link                          |
-| :------------------------ | :----------------------------------------------------: |
-| Hosted version of project |         https://oliverholt-ncnews.netlify.app/         |
-| Back-end API              | https://long-pink-goat-wear.cyclic.app/api/healthCheck |
-| Back-end repo             |     https://github.com/OliverHolt/BE-news-project      |
-| Creator's Github profile  |             https://github.com/OliverHolt/             |
+| Description               |                     Link                      |
+| :------------------------ | :-------------------------------------------: |
+| Hosted version of project |    https://oliverholt-ncnews.netlify.app/     |
+| Back-end API              |  https://long-pink-goat-wear.cyclic.app/api/  |
+| Back-end repo             | https://github.com/OliverHolt/BE-news-project |
+| Creator's Github profile  |        https://github.com/OliverHolt/         |
 
 # Set-up instructions
 
