@@ -25,7 +25,7 @@ const SingleArticle = () => {
       setArticleComments(article);
       setLoading(false);
     });
-  }, [article_id, userValue]);
+  }, [article_id]);
 
   if (loading) {
     return <Loading />;
@@ -87,6 +87,7 @@ const SingleArticle = () => {
             <Comments
               article_id={article_id}
               articleComments={articleComments}
+              setArticleComments={setArticleComments}
             />
           </div>
           <div id="add-comment">
